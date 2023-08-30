@@ -29,11 +29,11 @@ class IldaoMultiSpider(scrapy.Spider):
         # ildao_items 가져오기
         ildao_items = self.driver.find_elements(By.CSS_SELECTOR, "div.scrollsection > div.box.pointer")
 
-        for i in range(60):
+        for i in range(62):
             try:
                 print(f"목록가져오기{i} : {ildao_items[-1].location_once_scrolled_into_view}")
             except Exception as e:
-                print('/n/n/n/n/ - - - - - - - - 목록가져오기 예외처리 됨 !! - - - - - - - - n/n/n/n/n/n')
+                print('\n\n - - - - - - - - 목록가져오기 예외처리 됨 !! - - - - - - - - \n\n')
                 time.sleep(2.2)
             else:
                 time.sleep(2.2)
@@ -179,7 +179,7 @@ class IldaoMultiSpider(scrapy.Spider):
                         yield job_item
                 
                 except Exception as e:
-                    print('/n/n/n/n/ - - - - - - - - 예외처리 됨 !! - - - - - - - - n/n/n/n/n/n')
+                    print(f"\n\n - - - - - - - - 예외처리 됨 !! (1) - - - - - - - - \n\n{e}\n\n")
                 
                 else:
                     pass
@@ -316,7 +316,7 @@ class IldaoMultiSpider(scrapy.Spider):
                         yield job_item
 
                 except Exception as e:
-                    print('/n/n/n/n/ - - - - - - - - 예외처리 됨 !! - - - - - - - - n/n/n/n/n/n')
+                    print(f"\n\n - - - - - - - - 예외처리 됨 !! (2) - - - - - - - - \n\n{e}\n\n")
                 
                 else:
                     pass

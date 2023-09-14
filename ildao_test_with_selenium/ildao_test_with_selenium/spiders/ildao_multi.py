@@ -6,7 +6,7 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 import re; import time; import random
 from ildao_test_with_selenium.items import IldaoTestWithSeleniumItem
-
+#~/Documents/Calculendar_JSON/ildao_test_with_selenium/ildao_test_with_selenium/spiders/ildao_multi.py
 class IldaoMultiSpider(scrapy.Spider):
     name = "ildao_multi"
     allowed_domains = ["ildao.com"]
@@ -41,11 +41,11 @@ class IldaoMultiSpider(scrapy.Spider):
     WINDOW_SIZES = [
         'window-size=1920x1080',
         'window-size=1400x800',
-        'window-size=430x932',
-        'window-size=428x926',
-        'window-size=393x852',
-        'window-size=390x844',
-        'window-size=375x812',
+        'window-size=3066x1330',
+        'window-size=3620x1600',
+        'window-size=2930x1440',
+        'window-size=1390x1280',
+        'window-size=2375x1240',
         'disable-gpu'
     ]
 
@@ -76,7 +76,7 @@ class IldaoMultiSpider(scrapy.Spider):
         # ildao_items 가져오기
         ildao_items = self.driver.find_elements(By.CSS_SELECTOR, "div.scrollsection > div.box.pointer")
 
-        for i in range(82):
+        for i in range(88):
             try:
                 print(f"목록가져오기{i} : {ildao_items[-1].location_once_scrolled_into_view}")
             except Exception as e:
@@ -183,7 +183,7 @@ class IldaoMultiSpider(scrapy.Spider):
                     for numpeople_sel in numpeople_sel_list:
                         if len(num_pattern.findall(numpeople_sel.text)) > 0:    # 숫자가 들어있는 문자열만 가져온다
                             numpeople_int = re.sub('[^0-9]', '', numpeople_sel.text)    # 숫자를 제외한 문자 삭제
-                            print(f"numpeople_int : {numpeople_int}")
+                            #print(f"numpeople_int : {numpeople_int}")
                             numpeople_pre += int(numpeople_int)                 # 초보+조공+준공+기공 = 총인원
                     numpeople = f"{numpeople_pre}명"
     
@@ -220,7 +220,7 @@ class IldaoMultiSpider(scrapy.Spider):
                         job_item['etc1'] = etc1
                         job_item['etc2'] = etc2
                         job_item['etc3'] = etc3
-                        print(etc_set)
+                        #print(etc_set)
                         job_item['numpeople'] = numpeople
                         job_item['phone'] = phone
                         job_item['detail'] = detail

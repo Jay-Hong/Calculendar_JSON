@@ -29,9 +29,18 @@ jobs:
       run: |
         pwd
         ls -al
+
         if [ -f ildao_result.json ]; then rm -f ildao_result.json; fi
         scrapy crawl ildao_multi -o ildao_result.json -t json
-        cp -fp ildao_result.json ../jobinfoURL.json
+
+        LEN=$(cat ildao_result.json | wc -m)
+        if [ "${LEN}" -gt 500 ]; then
+          echo "Grater than 500"
+          cp -fp ildao_result.json ../jobinfoURL.json
+        else
+          echo "Less than 500"
+          echo "Do nothing"
+        fi
       working-directory: ./ildao_test_with_selenium
     
     - name: Commit files

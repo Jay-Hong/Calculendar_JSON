@@ -31,7 +31,7 @@ jobs:
         ls -al
 
         if [ -f ildao_result.json ]; then rm -f ildao_result.json; fi
-        scrapy crawl ildao_multi -o ildao_result.json -t json
+        scrapy crawl ildao_seoul -o ildao_result.json -t json
 
         LEN=$(cat ildao_result.json | wc -m)
         if [ "${LEN}" -gt 500 ]; then

@@ -81,7 +81,8 @@ class IldaoSeoulSpider(scrapy.Spider):
         num_of_item = 0
         for simple_item, site_item, pay_item in zip(simple_items, site_items, pay_items):
             simple_text_items.append(simple_item.text.split('\n')[0])
-            site_text_items.append(site_item.text.split('\n')[1])
+            site_text_items.append(re.sub( 'location_on', '', re.sub('\n', '', site_item.text)))
+            # site_text_items.append(site_item.text.split('\n')[1])     # 지역이 표시되지 않은 경우가 한번 있었는데 오류 남 ⬆️ 위 코드로 수정
             pay_text_items.append(pay_item.text)
             # simple_temp = simple_item.text.split('\n')[0]; site_temp = site_item.text.split('\n')[1]
             # print(f"\n{num_of_item} : {simple_temp}\t/\t{site_temp}\t/\t{pay_item.text}\t\n")
@@ -107,16 +108,16 @@ class IldaoSeoulSpider(scrapy.Spider):
                     job_item.location_once_scrolled_into_view
                     time.sleep(random.randint(1, 12));job_item.click();time.sleep(.5)  # time.sleep(1);job_item.click();time.sleep(.5)
                     title, site, type, pay, etc1, etc2, etc3, numpeople, phone, detail, imageURL = self.get_job_detail()
+                    job_item = IldaoTestWithSeleniumItem()
+                    job_item['title'] = title;job_item['site'] = site;job_item['type'] = type;job_item['pay'] = pay
+                    job_item['etc1'] = etc1;job_item['etc2'] = etc2;job_item['etc3'] = etc3 #print(etc_set)
+                    job_item['numpeople'] = numpeople;job_item['phone'] = phone;job_item['detail'] = detail
+                    job_item['imageURL'] = imageURL;job_item['time'] = '';job_item['sponsored'] = ''
+                    yield job_item
                 except Exception as e:
                     print(f"\n\n - - - - - - - - 예외처리 됨 !! (서울 ⬆️) - - - - - - - - \n\n{e}\n\n")
                 else:
                     pass
-                job_item = IldaoTestWithSeleniumItem()
-                job_item['title'] = title;job_item['site'] = site;job_item['type'] = type;job_item['pay'] = pay
-                job_item['etc1'] = etc1;job_item['etc2'] = etc2;job_item['etc3'] = etc3 #print(etc_set)
-                job_item['numpeople'] = numpeople;job_item['phone'] = phone;job_item['detail'] = detail
-                job_item['imageURL'] = imageURL;job_item['time'] = '';job_item['sponsored'] = ''
-                yield job_item
 
         # 서울 17만원 미만 (14이상) & 협의
         print(f"중단가기  : {ildao_items[first_no_simple].location_once_scrolled_into_view}")
@@ -127,16 +128,16 @@ class IldaoSeoulSpider(scrapy.Spider):
                     job_item.location_once_scrolled_into_view
                     time.sleep(random.randint(1, 7));job_item.click();time.sleep(.5)   # time.sleep(1);job_item.click();time.sleep(.5)
                     title, site, type, pay, etc1, etc2, etc3, numpeople, phone, detail, imageURL = self.get_job_detail()
+                    job_item = IldaoTestWithSeleniumItem()
+                    job_item['title'] = title;job_item['site'] = site;job_item['type'] = type;job_item['pay'] = pay
+                    job_item['etc1'] = etc1;job_item['etc2'] = etc2;job_item['etc3'] = etc3 #print(etc_set)
+                    job_item['numpeople'] = numpeople;job_item['phone'] = phone;job_item['detail'] = detail
+                    job_item['imageURL'] = imageURL;job_item['time'] = '';job_item['sponsored'] = ''
+                    yield job_item
                 except Exception as e:
                     print(f"\n\n - - - - - - - - 예외처리 됨 !! (서울 ⬇️) - - - - - - - - \n\n{e}\n\n")
                 else:
                     pass
-                job_item = IldaoTestWithSeleniumItem()
-                job_item['title'] = title;job_item['site'] = site;job_item['type'] = type;job_item['pay'] = pay
-                job_item['etc1'] = etc1;job_item['etc2'] = etc2;job_item['etc3'] = etc3 #print(etc_set)
-                job_item['numpeople'] = numpeople;job_item['phone'] = phone;job_item['detail'] = detail
-                job_item['imageURL'] = imageURL;job_item['time'] = '';job_item['sponsored'] = ''
-                yield job_item
         
         # 부산 17만원 이상
         print(f"중단가기  : {ildao_items[first_no_simple].location_once_scrolled_into_view}")
@@ -147,16 +148,16 @@ class IldaoSeoulSpider(scrapy.Spider):
                     job_item.location_once_scrolled_into_view
                     time.sleep(random.randint(1, 11));job_item.click();time.sleep(.5)  # time.sleep(1);job_item.click();time.sleep(.5)
                     title, site, type, pay, etc1, etc2, etc3, numpeople, phone, detail, imageURL = self.get_job_detail()
+                    job_item = IldaoTestWithSeleniumItem()
+                    job_item['title'] = title;job_item['site'] = site;job_item['type'] = type;job_item['pay'] = pay
+                    job_item['etc1'] = etc1;job_item['etc2'] = etc2;job_item['etc3'] = etc3 #print(etc_set)
+                    job_item['numpeople'] = numpeople;job_item['phone'] = phone;job_item['detail'] = detail
+                    job_item['imageURL'] = imageURL;job_item['time'] = '';job_item['sponsored'] = ''
+                    yield job_item
                 except Exception as e:
                     print(f"\n\n - - - - - - - - 예외처리 됨 !! (부산 ⬆️) - - - - - - - - \n\n{e}\n\n")
                 else:
                     pass
-                job_item = IldaoTestWithSeleniumItem()
-                job_item['title'] = title;job_item['site'] = site;job_item['type'] = type;job_item['pay'] = pay
-                job_item['etc1'] = etc1;job_item['etc2'] = etc2;job_item['etc3'] = etc3 #print(etc_set)
-                job_item['numpeople'] = numpeople;job_item['phone'] = phone;job_item['detail'] = detail
-                job_item['imageURL'] = imageURL;job_item['time'] = '';job_item['sponsored'] = ''
-                yield job_item
 
         # 부산 17만원 미만 (14이상) & 협의
         print(f"중단가기  : {ildao_items[first_no_simple].location_once_scrolled_into_view}")
@@ -167,16 +168,16 @@ class IldaoSeoulSpider(scrapy.Spider):
                     job_item.location_once_scrolled_into_view
                     time.sleep(random.randint(1, 7));job_item.click();time.sleep(.5)   # time.sleep(1);job_item.click();time.sleep(.5)
                     title, site, type, pay, etc1, etc2, etc3, numpeople, phone, detail, imageURL = self.get_job_detail()
+                    job_item = IldaoTestWithSeleniumItem()
+                    job_item['title'] = title;job_item['site'] = site;job_item['type'] = type;job_item['pay'] = pay
+                    job_item['etc1'] = etc1;job_item['etc2'] = etc2;job_item['etc3'] = etc3 #print(etc_set)
+                    job_item['numpeople'] = numpeople;job_item['phone'] = phone;job_item['detail'] = detail
+                    job_item['imageURL'] = imageURL;job_item['time'] = '';job_item['sponsored'] = ''
+                    yield job_item
                 except Exception as e:
                     print(f"\n\n - - - - - - - - 예외처리 됨 !! (부산 ⬇️) - - - - - - - - \n\n{e}\n\n")
                 else:
                     pass
-                job_item = IldaoTestWithSeleniumItem()
-                job_item['title'] = title;job_item['site'] = site;job_item['type'] = type;job_item['pay'] = pay
-                job_item['etc1'] = etc1;job_item['etc2'] = etc2;job_item['etc3'] = etc3 #print(etc_set)
-                job_item['numpeople'] = numpeople;job_item['phone'] = phone;job_item['detail'] = detail
-                job_item['imageURL'] = imageURL;job_item['time'] = '';job_item['sponsored'] = ''
-                yield job_item
 
         # 서울, 부산 이외 17만원 이상
         print(f"중단가기  : {ildao_items[first_no_simple].location_once_scrolled_into_view}")
@@ -187,16 +188,16 @@ class IldaoSeoulSpider(scrapy.Spider):
                     job_item.location_once_scrolled_into_view
                     time.sleep(random.randint(1, 5));job_item.click();time.sleep(.5)   # time.sleep(1);job_item.click();time.sleep(.5)
                     title, site, type, pay, etc1, etc2, etc3, numpeople, phone, detail, imageURL = self.get_job_detail()
+                    job_item = IldaoTestWithSeleniumItem()
+                    job_item['title'] = title;job_item['site'] = site;job_item['type'] = type;job_item['pay'] = pay
+                    job_item['etc1'] = etc1;job_item['etc2'] = etc2;job_item['etc3'] = etc3 #print(etc_set)
+                    job_item['numpeople'] = numpeople;job_item['phone'] = phone;job_item['detail'] = detail
+                    job_item['imageURL'] = imageURL;job_item['time'] = '';job_item['sponsored'] = ''
+                    yield job_item
                 except Exception as e:
                     print(f"\n\n - - - - - - - - 예외처리 됨 !! (그외 ⬆️) - - - - - - - - \n\n{e}\n\n")
                 else:
                     pass
-                job_item = IldaoTestWithSeleniumItem()
-                job_item['title'] = title;job_item['site'] = site;job_item['type'] = type;job_item['pay'] = pay
-                job_item['etc1'] = etc1;job_item['etc2'] = etc2;job_item['etc3'] = etc3 #print(etc_set)
-                job_item['numpeople'] = numpeople;job_item['phone'] = phone;job_item['detail'] = detail
-                job_item['imageURL'] = imageURL;job_item['time'] = '';job_item['sponsored'] = ''
-                yield job_item
 
         # 서울, 부산 이외 17만원 미만 (14이상) & 협의
         print(f"중단가기  : {ildao_items[first_no_simple].location_once_scrolled_into_view}")
@@ -207,16 +208,16 @@ class IldaoSeoulSpider(scrapy.Spider):
                     job_item.location_once_scrolled_into_view
                     time.sleep(random.randint(1, 4));job_item.click();time.sleep(.5)   # time.sleep(1);job_item.click();time.sleep(.5)
                     title, site, type, pay, etc1, etc2, etc3, numpeople, phone, detail, imageURL = self.get_job_detail()
+                    job_item = IldaoTestWithSeleniumItem()
+                    job_item['title'] = title;job_item['site'] = site;job_item['type'] = type;job_item['pay'] = pay
+                    job_item['etc1'] = etc1;job_item['etc2'] = etc2;job_item['etc3'] = etc3 #print(etc_set)
+                    job_item['numpeople'] = numpeople;job_item['phone'] = phone;job_item['detail'] = detail
+                    job_item['imageURL'] = imageURL;job_item['time'] = '';job_item['sponsored'] = ''
+                    yield job_item
                 except Exception as e:
                     print(f"\n\n - - - - - - - - 예외처리 됨 !! (그외 ⬇️) - - - - - - - - \n\n{e}\n\n")
                 else:
                     pass
-                job_item = IldaoTestWithSeleniumItem()
-                job_item['title'] = title;job_item['site'] = site;job_item['type'] = type;job_item['pay'] = pay
-                job_item['etc1'] = etc1;job_item['etc2'] = etc2;job_item['etc3'] = etc3 #print(etc_set)
-                job_item['numpeople'] = numpeople;job_item['phone'] = phone;job_item['detail'] = detail
-                job_item['imageURL'] = imageURL;job_item['time'] = '';job_item['sponsored'] = ''
-                yield job_item
 
         time.sleep(random.randint(3, 30))  # time.sleep(2)
         print(f"\n\n\n총 아이템 수 : [{num_of_item}]\n")

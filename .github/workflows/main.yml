@@ -2,7 +2,8 @@ name: Run crawler and update JSON
 
 on: # [push]
   schedule:
-    - cron: '28 18 * * 1,3,5'	# 화, 목, 토 03:28 실행 (UTC+9) [UTC기준 화, 금 18:28 실행시작]
+    - cron: '28 18 * * *'	# 매일 03:28 실행 (UTC+9) [UTC기준 매일 18:28 실행시작]
+    # - cron: '28 18 * * 1,3,5'	# 화, 목, 토 03:28 실행 (UTC+9) [UTC기준 월, 수, 금 18:28 실행시작]
     # - cron: '55 23 31 2 4'	# 실행되지 않을 것
 
 jobs:

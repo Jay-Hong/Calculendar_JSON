@@ -18,9 +18,9 @@ pattern_null = re.compile('null')
 
 class IldaoTestWithSeleniumPipeline:
     def process_item(self, item, spider):
-        if len(pattern_day10_13.findall(item['pay'])) > 0:  # '일급 10 ~ 14' 들어가면 다 뺌
+        if len(pattern_day10_13.findall(item['pay'])) > 0:  # '일급 10 ~ 13' 들어가면 다 뺌
             raise DropItem('\n\nDrop 일급 10 ~ 13 ! 🚯\n')
-        elif len(pattern_month10_13.findall(item['pay'])) > 0:  # '월급 10 ~ 14' 들어가면 다 뺌
+        elif len(pattern_month10_13.findall(item['pay'])) > 0:  # '월급 10 ~ 13' 들어가면 다 뺌
             raise DropItem('\n\nDrop 월급 10 ~ 13 ! 🚯\n')
         elif item['title'].find('일다오') != -1:    # str.find('문자열') 찾았으면 0 ~ 찾은 첫번째 인댁스 / 못찾았으면 -1 반환
             raise DropItem('\n\nDrop title : 일다오 🚯\n')
@@ -57,6 +57,8 @@ class DuplicatesPipeline:
             return item
 
 # 본문에 '♧일다오 지원하기를 이용해주세요♧' 뺌!!!
+# '일급 10 ~ 13' 으로 시작하는 것도 뺌 !!!
+# detail 32자 미만은 뺌!!!
 # 인원 숫자만 가져와 더해준다. 0 인경우 0명 표기 함!!!
 # pay  , 단위 고침!!!
 # 조공/보조  고침!!!

@@ -8,9 +8,14 @@ import re; import time;
 from ildao_test_with_selenium.items import IldaoTestWithSeleniumItem
 
 class IldaoTestSpider(scrapy.Spider):
+
+    dotdcom = "o.com/r"
+    recrudit = "ecruit"
+    ilbdao = "lda"
+
     name = "ildao_test"
-    allowed_domains = ["ildao.com"]
-    start_urls = ["https://ildao.com/recruit"]
+    allowed_domains = ["i"+ilbdao+"o.com"]
+    start_urls = ["https://i"+ilbdao+dotdcom+recrudit]
  
     def __init__(self):
         headlessoptions = webdriver.ChromeOptions()

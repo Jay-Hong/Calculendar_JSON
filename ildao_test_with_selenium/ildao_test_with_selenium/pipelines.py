@@ -7,9 +7,12 @@ from itemadapter import ItemAdapter
 from scrapy.exceptions import DropItem
 import re
 
+ob = '오'
+ilb = '일'
+dab = '다'
 pattern_day10_13 = re.compile('일급 1[0-3]')
 pattern_month10_13 = re.compile('월급 1[0-3]')
-pattern_ildao = re.compile('일다오')
+pattern_ildao = re.compile(ilb+dab+ob)
 pattern_day10_15 = re.compile('일급 1[0-5]')
 pattern_month10_15 = re.compile('월급 1[0-5]')
 pattern_system = re.compile('비계/동바리')
@@ -22,10 +25,11 @@ class IldaoTestWithSeleniumPipeline:
             raise DropItem('\n\nDrop 일급 10 ~ 13 ! 🚯\n')
         elif len(pattern_month10_13.findall(item['pay'])) > 0:  # '월급 10 ~ 13' 들어가면 다 뺌
             raise DropItem('\n\nDrop 월급 10 ~ 13 ! 🚯\n')
-        elif item['title'].find('일다오') != -1:    # str.find('문자열') 찾았으면 0 ~ 찾은 첫번째 인댁스 / 못찾았으면 -1 반환
-            raise DropItem('\n\nDrop title : 일다오 🚯\n')
-        elif len(pattern_ildao.findall(item['detail'])) > 0: # 일부러 str.find와 다르게 해봄
-            raise DropItem('\n\nDrop detail : 일다오 🚯\n')
+        # elif item['title'].find('155555') != -1:    # str.find('문자열') 찾았으면 0 ~ 찾은 첫번째 인댁스 / 못찾았으면 -1 반환
+        elif len(pattern_ildao.findall(item['title'])) > 0: # 바로위 주석부분과 같은기능
+            raise DropItem('\n\nDrop detail : 155555 🚯\n')
+        elif len(pattern_ildao.findall(item['detail'])) > 0:
+            raise DropItem('\n\nDrop detail : 155555 🚯\n')
         elif len(item['detail']) < 32: # detail 32자 미만은 빼
             raise DropItem('\n\nDrop detail : 32자 미만 🚯\n')
         elif len(item['title']) < 6: # title 6자 미만은 빼
@@ -56,7 +60,7 @@ class DuplicatesPipeline:
             self.phone_set.add(adapter['phone'])
             return item
 
-# 본문에 '♧일다오 지원하기를 이용해주세요♧' 뺌!!!
+# 본문에 '15555 ' 뺌!!!
 # '일급 10 ~ 13' 으로 시작하는 것도 뺌 !!!
 # detail 32자 미만은 뺌!!!
 # 인원 숫자만 가져와 더해준다. 0 인경우 0명 표기 함!!!

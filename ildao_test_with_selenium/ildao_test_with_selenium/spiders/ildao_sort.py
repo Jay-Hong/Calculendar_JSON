@@ -252,7 +252,7 @@ class IldaoSeoulSpider(scrapy.Spider):
             if index >= first_no_simple and simple_text_items[index].find('간편지원') == -1 and site_text_items[index].find('서울') >= 0 and pay_text_items[index].find('협의') == -1 and (len(pattern_16_19.findall(pay_text_items[index])) > 0 or len(pattern_20_29.findall(pay_text_items[index])) > 0):
                 try:
                     job_item.location_once_scrolled_into_view
-                    time.sleep(random.randint(1, 12));job_item.click();time.sleep(.5)  # time.sleep(1);job_item.click();time.sleep(.5)
+                    time.sleep(random.randint(1, 13));job_item.click();time.sleep(.5)  # time.sleep(1);job_item.click();time.sleep(.5)
                     title, site, type, pay, etc1, etc2, etc3, numpeople, phone, detail, imageURL = self.get_job_detail()
                     job_item = IldaoTestWithSeleniumItem()
                     job_item['title'] = title;job_item['site'] = site;job_item['type'] = type;job_item['pay'] = pay
@@ -267,12 +267,12 @@ class IldaoSeoulSpider(scrapy.Spider):
 
         # 서울 16만 ~ 29만원 이외 & 협의
         print(f"중단가기  : {ildao_items[first_no_simple].location_once_scrolled_into_view}")
-        time.sleep(random.randint(3, 7))   # time.sleep(3)
+        time.sleep(random.randint(3, 70))   # time.sleep(3)
         for index, job_item in enumerate(ildao_items):
             if index >= first_no_simple and simple_text_items[index].find('간편지원') == -1 and site_text_items[index].find('서울') >= 0 and (pay_text_items[index].find('협의') >= 0 or (len(pattern_16_19.findall(pay_text_items[index])) == 0 and len(pattern_20_29.findall(pay_text_items[index])) == 0)):
                 try:
                     job_item.location_once_scrolled_into_view
-                    time.sleep(random.randint(1, 7));job_item.click();time.sleep(.5)   # time.sleep(1);job_item.click();time.sleep(.5)
+                    time.sleep(random.randint(1, 12));job_item.click();time.sleep(.5)   # time.sleep(1);job_item.click();time.sleep(.5)
                     title, site, type, pay, etc1, etc2, etc3, numpeople, phone, detail, imageURL = self.get_job_detail()
                     job_item = IldaoTestWithSeleniumItem()
                     job_item['title'] = title;job_item['site'] = site;job_item['type'] = type;job_item['pay'] = pay
@@ -287,7 +287,7 @@ class IldaoSeoulSpider(scrapy.Spider):
         
         # 부산 16만 ~ 29만원
         print(f"중단가기  : {ildao_items[first_no_simple].location_once_scrolled_into_view}")
-        time.sleep(random.randint(3, 7))   # time.sleep(3)
+        time.sleep(random.randint(3, 70))   # time.sleep(3)
         for index, job_item in enumerate(ildao_items):
             if index >= first_no_simple and simple_text_items[index].find('간편지원') == -1 and site_text_items[index].find('부산') >= 0 and pay_text_items[index].find('협의') == -1 and (len(pattern_16_19.findall(pay_text_items[index])) > 0 or len(pattern_20_29.findall(pay_text_items[index])) > 0):
                 try:
@@ -307,7 +307,7 @@ class IldaoSeoulSpider(scrapy.Spider):
 
         # 부산 16만 ~ 29만원 이외 & 협의
         print(f"중단가기  : {ildao_items[first_no_simple].location_once_scrolled_into_view}")
-        time.sleep(random.randint(3, 7))   # time.sleep(3)
+        time.sleep(random.randint(3, 70))   # time.sleep(3)
         for index, job_item in enumerate(ildao_items):
             if index >= first_no_simple and simple_text_items[index].find('간편지원') == -1 and site_text_items[index].find('부산') >= 0 and (pay_text_items[index].find('협의') >= 0 or (len(pattern_16_19.findall(pay_text_items[index])) == 0 and len(pattern_20_29.findall(pay_text_items[index])) == 0)):
                 try:
@@ -327,12 +327,12 @@ class IldaoSeoulSpider(scrapy.Spider):
 
         # 경기 16만 ~ 29만원
         print(f"중단가기  : {ildao_items[first_no_simple].location_once_scrolled_into_view}")
-        time.sleep(random.randint(3, 7))   # time.sleep(2)
+        time.sleep(random.randint(3, 70))   # time.sleep(2)
         for index, job_item in enumerate(ildao_items):
             if index >= first_no_simple and simple_text_items[index].find('간편지원') == -1 and site_text_items[index].find('경기') >= 0 and pay_text_items[index].find('협의') == -1 and (len(pattern_16_19.findall(pay_text_items[index])) > 0 or len(pattern_20_29.findall(pay_text_items[index])) > 0):
                 try:
                     job_item.location_once_scrolled_into_view
-                    time.sleep(random.randint(1, 12));job_item.click();time.sleep(.5)  # time.sleep(1);job_item.click();time.sleep(.5)
+                    time.sleep(random.randint(1, 8));job_item.click();time.sleep(.5)  # time.sleep(1);job_item.click();time.sleep(.5)
                     title, site, type, pay, etc1, etc2, etc3, numpeople, phone, detail, imageURL = self.get_job_detail()
                     job_item = IldaoTestWithSeleniumItem()
                     job_item['title'] = title;job_item['site'] = site;job_item['type'] = type;job_item['pay'] = pay
@@ -347,12 +347,12 @@ class IldaoSeoulSpider(scrapy.Spider):
 
         # 경기 16만 ~ 29만원 이외 & 협의
         print(f"중단가기  : {ildao_items[first_no_simple].location_once_scrolled_into_view}")
-        time.sleep(random.randint(3, 7))   # time.sleep(3)
+        time.sleep(random.randint(3, 70))   # time.sleep(3)
         for index, job_item in enumerate(ildao_items):
             if index >= first_no_simple and simple_text_items[index].find('간편지원') == -1 and site_text_items[index].find('경기') >= 0 and (pay_text_items[index].find('협의') >= 0 or (len(pattern_16_19.findall(pay_text_items[index])) == 0 and len(pattern_20_29.findall(pay_text_items[index])) == 0)):
                 try:
                     job_item.location_once_scrolled_into_view
-                    time.sleep(random.randint(1, 7));job_item.click();time.sleep(.5)   # time.sleep(1);job_item.click();time.sleep(.5)
+                    time.sleep(random.randint(1, 4));job_item.click();time.sleep(.5)   # time.sleep(1);job_item.click();time.sleep(.5)
                     title, site, type, pay, etc1, etc2, etc3, numpeople, phone, detail, imageURL = self.get_job_detail()
                     job_item = IldaoTestWithSeleniumItem()
                     job_item['title'] = title;job_item['site'] = site;job_item['type'] = type;job_item['pay'] = pay
@@ -367,12 +367,12 @@ class IldaoSeoulSpider(scrapy.Spider):
         
         # 인천 16만 ~ 29만원
         print(f"중단가기  : {ildao_items[first_no_simple].location_once_scrolled_into_view}")
-        time.sleep(random.randint(3, 7))   # time.sleep(2)
+        time.sleep(random.randint(3, 70))   # time.sleep(2)
         for index, job_item in enumerate(ildao_items):
             if index >= first_no_simple and simple_text_items[index].find('간편지원') == -1 and site_text_items[index].find('인천') >= 0 and pay_text_items[index].find('협의') == -1 and (len(pattern_16_19.findall(pay_text_items[index])) > 0 or len(pattern_20_29.findall(pay_text_items[index])) > 0):
                 try:
                     job_item.location_once_scrolled_into_view
-                    time.sleep(random.randint(1, 12));job_item.click();time.sleep(.5)  # time.sleep(1);job_item.click();time.sleep(.5)
+                    time.sleep(random.randint(1, 7));job_item.click();time.sleep(.5)  # time.sleep(1);job_item.click();time.sleep(.5)
                     title, site, type, pay, etc1, etc2, etc3, numpeople, phone, detail, imageURL = self.get_job_detail()
                     job_item = IldaoTestWithSeleniumItem()
                     job_item['title'] = title;job_item['site'] = site;job_item['type'] = type;job_item['pay'] = pay
@@ -392,7 +392,7 @@ class IldaoSeoulSpider(scrapy.Spider):
             if index >= first_no_simple and simple_text_items[index].find('간편지원') == -1 and site_text_items[index].find('인천') >= 0 and (pay_text_items[index].find('협의') >= 0 or (len(pattern_16_19.findall(pay_text_items[index])) == 0 and len(pattern_20_29.findall(pay_text_items[index])) == 0)):
                 try:
                     job_item.location_once_scrolled_into_view
-                    time.sleep(random.randint(1, 7));job_item.click();time.sleep(.5)   # time.sleep(1);job_item.click();time.sleep(.5)
+                    time.sleep(random.randint(1, 4));job_item.click();time.sleep(.5)   # time.sleep(1);job_item.click();time.sleep(.5)
                     title, site, type, pay, etc1, etc2, etc3, numpeople, phone, detail, imageURL = self.get_job_detail()
                     job_item = IldaoTestWithSeleniumItem()
                     job_item['title'] = title;job_item['site'] = site;job_item['type'] = type;job_item['pay'] = pay
@@ -407,12 +407,12 @@ class IldaoSeoulSpider(scrapy.Spider):
         
         # 충남 16만 ~ 29만원
         print(f"중단가기  : {ildao_items[first_no_simple].location_once_scrolled_into_view}")
-        time.sleep(random.randint(3, 7))   # time.sleep(2)
+        time.sleep(random.randint(3, 70))   # time.sleep(2)
         for index, job_item in enumerate(ildao_items):
             if index >= first_no_simple and simple_text_items[index].find('간편지원') == -1 and site_text_items[index].find('충남') >= 0 and pay_text_items[index].find('협의') == -1 and (len(pattern_16_19.findall(pay_text_items[index])) > 0 or len(pattern_20_29.findall(pay_text_items[index])) > 0):
                 try:
                     job_item.location_once_scrolled_into_view
-                    time.sleep(random.randint(1, 12));job_item.click();time.sleep(.5)  # time.sleep(1);job_item.click();time.sleep(.5)
+                    time.sleep(random.randint(1, 8));job_item.click();time.sleep(.5)  # time.sleep(1);job_item.click();time.sleep(.5)
                     title, site, type, pay, etc1, etc2, etc3, numpeople, phone, detail, imageURL = self.get_job_detail()
                     job_item = IldaoTestWithSeleniumItem()
                     job_item['title'] = title;job_item['site'] = site;job_item['type'] = type;job_item['pay'] = pay
@@ -432,7 +432,7 @@ class IldaoSeoulSpider(scrapy.Spider):
             if index >= first_no_simple and simple_text_items[index].find('간편지원') == -1 and site_text_items[index].find('충남') >= 0 and (pay_text_items[index].find('협의') >= 0 or (len(pattern_16_19.findall(pay_text_items[index])) == 0 and len(pattern_20_29.findall(pay_text_items[index])) == 0)):
                 try:
                     job_item.location_once_scrolled_into_view
-                    time.sleep(random.randint(1, 7));job_item.click();time.sleep(.5)   # time.sleep(1);job_item.click();time.sleep(.5)
+                    time.sleep(random.randint(1, 4));job_item.click();time.sleep(.5)   # time.sleep(1);job_item.click();time.sleep(.5)
                     title, site, type, pay, etc1, etc2, etc3, numpeople, phone, detail, imageURL = self.get_job_detail()
                     job_item = IldaoTestWithSeleniumItem()
                     job_item['title'] = title;job_item['site'] = site;job_item['type'] = type;job_item['pay'] = pay
@@ -447,7 +447,7 @@ class IldaoSeoulSpider(scrapy.Spider):
         
         # 충북 16만 ~ 29만원
         print(f"중단가기  : {ildao_items[first_no_simple].location_once_scrolled_into_view}")
-        time.sleep(random.randint(3, 7))   # time.sleep(2)
+        time.sleep(random.randint(3, 70))   # time.sleep(2)
         for index, job_item in enumerate(ildao_items):
             if index >= first_no_simple and simple_text_items[index].find('간편지원') == -1 and site_text_items[index].find('충북') >= 0 and pay_text_items[index].find('협의') == -1 and (len(pattern_16_19.findall(pay_text_items[index])) > 0 or len(pattern_20_29.findall(pay_text_items[index])) > 0):
                 try:
@@ -487,7 +487,7 @@ class IldaoSeoulSpider(scrapy.Spider):
         
         # 대전 16만 ~ 29만원
         print(f"중단가기  : {ildao_items[first_no_simple].location_once_scrolled_into_view}")
-        time.sleep(random.randint(3, 7))   # time.sleep(2)
+        time.sleep(random.randint(3, 70))   # time.sleep(2)
         for index, job_item in enumerate(ildao_items):
             if index >= first_no_simple and simple_text_items[index].find('간편지원') == -1 and site_text_items[index].find('대전') >= 0 and pay_text_items[index].find('협의') == -1 and (len(pattern_16_19.findall(pay_text_items[index])) > 0 or len(pattern_20_29.findall(pay_text_items[index])) > 0):
                 try:
@@ -527,7 +527,7 @@ class IldaoSeoulSpider(scrapy.Spider):
         
         # 세종 16만 ~ 29만원
         print(f"중단가기  : {ildao_items[first_no_simple].location_once_scrolled_into_view}")
-        time.sleep(random.randint(3, 7))   # time.sleep(2)
+        time.sleep(random.randint(3, 70))   # time.sleep(2)
         for index, job_item in enumerate(ildao_items):
             if index >= first_no_simple and simple_text_items[index].find('간편지원') == -1 and site_text_items[index].find('세종') >= 0 and pay_text_items[index].find('협의') == -1 and (len(pattern_16_19.findall(pay_text_items[index])) > 0 or len(pattern_20_29.findall(pay_text_items[index])) > 0):
                 try:
@@ -567,12 +567,12 @@ class IldaoSeoulSpider(scrapy.Spider):
         
         # 전남 16만 ~ 29만원
         print(f"중단가기  : {ildao_items[first_no_simple].location_once_scrolled_into_view}")
-        time.sleep(random.randint(3, 7))   # time.sleep(2)
+        time.sleep(random.randint(3, 70))   # time.sleep(2)
         for index, job_item in enumerate(ildao_items):
             if index >= first_no_simple and simple_text_items[index].find('간편지원') == -1 and site_text_items[index].find('전남') >= 0 and pay_text_items[index].find('협의') == -1 and (len(pattern_16_19.findall(pay_text_items[index])) > 0 or len(pattern_20_29.findall(pay_text_items[index])) > 0):
                 try:
                     job_item.location_once_scrolled_into_view
-                    time.sleep(random.randint(1, 12));job_item.click();time.sleep(.5)  # time.sleep(1);job_item.click();time.sleep(.5)
+                    time.sleep(random.randint(1, 11));job_item.click();time.sleep(.5)  # time.sleep(1);job_item.click();time.sleep(.5)
                     title, site, type, pay, etc1, etc2, etc3, numpeople, phone, detail, imageURL = self.get_job_detail()
                     job_item = IldaoTestWithSeleniumItem()
                     job_item['title'] = title;job_item['site'] = site;job_item['type'] = type;job_item['pay'] = pay
@@ -592,7 +592,7 @@ class IldaoSeoulSpider(scrapy.Spider):
             if index >= first_no_simple and simple_text_items[index].find('간편지원') == -1 and site_text_items[index].find('전남') >= 0 and (pay_text_items[index].find('협의') >= 0 or (len(pattern_16_19.findall(pay_text_items[index])) == 0 and len(pattern_20_29.findall(pay_text_items[index])) == 0)):
                 try:
                     job_item.location_once_scrolled_into_view
-                    time.sleep(random.randint(1, 7));job_item.click();time.sleep(.5)   # time.sleep(1);job_item.click();time.sleep(.5)
+                    time.sleep(random.randint(1, 6));job_item.click();time.sleep(.5)   # time.sleep(1);job_item.click();time.sleep(.5)
                     title, site, type, pay, etc1, etc2, etc3, numpeople, phone, detail, imageURL = self.get_job_detail()
                     job_item = IldaoTestWithSeleniumItem()
                     job_item['title'] = title;job_item['site'] = site;job_item['type'] = type;job_item['pay'] = pay
@@ -607,7 +607,7 @@ class IldaoSeoulSpider(scrapy.Spider):
         
         # 광주 16만 ~ 29만원
         print(f"중단가기  : {ildao_items[first_no_simple].location_once_scrolled_into_view}")
-        time.sleep(random.randint(3, 7))   # time.sleep(2)
+        time.sleep(random.randint(3, 70))   # time.sleep(2)
         for index, job_item in enumerate(ildao_items):
             if index >= first_no_simple and simple_text_items[index].find('간편지원') == -1 and site_text_items[index].find('광주') >= 0 and site_text_items[index].find('경기') == -1 and pay_text_items[index].find('협의') == -1 and (len(pattern_16_19.findall(pay_text_items[index])) > 0 or len(pattern_20_29.findall(pay_text_items[index])) > 0):
                 try:
@@ -647,7 +647,7 @@ class IldaoSeoulSpider(scrapy.Spider):
         
         # 전북 16만 ~ 29만원
         print(f"중단가기  : {ildao_items[first_no_simple].location_once_scrolled_into_view}")
-        time.sleep(random.randint(3, 7))   # time.sleep(2)
+        time.sleep(random.randint(3, 70))   # time.sleep(2)
         for index, job_item in enumerate(ildao_items):
             if index >= first_no_simple and simple_text_items[index].find('간편지원') == -1 and site_text_items[index].find('전북') >= 0 and pay_text_items[index].find('협의') == -1 and (len(pattern_16_19.findall(pay_text_items[index])) > 0 or len(pattern_20_29.findall(pay_text_items[index])) > 0):
                 try:
@@ -687,7 +687,7 @@ class IldaoSeoulSpider(scrapy.Spider):
         
         # 경남 16만 ~ 29만원
         print(f"중단가기  : {ildao_items[first_no_simple].location_once_scrolled_into_view}")
-        time.sleep(random.randint(3, 7))   # time.sleep(2)
+        time.sleep(random.randint(3, 70))   # time.sleep(2)
         for index, job_item in enumerate(ildao_items):
             if index >= first_no_simple and simple_text_items[index].find('간편지원') == -1 and site_text_items[index].find('경남') >= 0 and pay_text_items[index].find('협의') == -1 and (len(pattern_16_19.findall(pay_text_items[index])) > 0 or len(pattern_20_29.findall(pay_text_items[index])) > 0):
                 try:
@@ -727,7 +727,7 @@ class IldaoSeoulSpider(scrapy.Spider):
         
         # 울산 16만 ~ 29만원
         print(f"중단가기  : {ildao_items[first_no_simple].location_once_scrolled_into_view}")
-        time.sleep(random.randint(3, 7))   # time.sleep(2)
+        time.sleep(random.randint(3, 70))   # time.sleep(2)
         for index, job_item in enumerate(ildao_items):
             if index >= first_no_simple and simple_text_items[index].find('간편지원') == -1 and site_text_items[index].find('울산') >= 0 and pay_text_items[index].find('협의') == -1 and (len(pattern_16_19.findall(pay_text_items[index])) > 0 or len(pattern_20_29.findall(pay_text_items[index])) > 0):
                 try:
@@ -767,7 +767,7 @@ class IldaoSeoulSpider(scrapy.Spider):
         
         # 경북 16만 ~ 29만원
         print(f"중단가기  : {ildao_items[first_no_simple].location_once_scrolled_into_view}")
-        time.sleep(random.randint(3, 7))   # time.sleep(2)
+        time.sleep(random.randint(3, 70))   # time.sleep(2)
         for index, job_item in enumerate(ildao_items):
             if index >= first_no_simple and simple_text_items[index].find('간편지원') == -1 and site_text_items[index].find('경북') >= 0 and pay_text_items[index].find('협의') == -1 and (len(pattern_16_19.findall(pay_text_items[index])) > 0 or len(pattern_20_29.findall(pay_text_items[index])) > 0):
                 try:
@@ -807,7 +807,7 @@ class IldaoSeoulSpider(scrapy.Spider):
         
         # 대구 16만 ~ 29만원 (부산 해운대구X)
         print(f"중단가기  : {ildao_items[first_no_simple].location_once_scrolled_into_view}")
-        time.sleep(random.randint(3, 7))   # time.sleep(2)
+        time.sleep(random.randint(3, 70))   # time.sleep(2)
         for index, job_item in enumerate(ildao_items):
             if index >= first_no_simple and simple_text_items[index].find('간편지원') == -1 and site_text_items[index].find('대구') >= 0 and site_text_items[index].find('부산') == -1 and pay_text_items[index].find('협의') == -1 and (len(pattern_16_19.findall(pay_text_items[index])) > 0 or len(pattern_20_29.findall(pay_text_items[index])) > 0):
                 try:
@@ -847,12 +847,12 @@ class IldaoSeoulSpider(scrapy.Spider):
         
         # 강원 16만 ~ 29만원
         print(f"중단가기  : {ildao_items[first_no_simple].location_once_scrolled_into_view}")
-        time.sleep(random.randint(3, 7))   # time.sleep(2)
+        time.sleep(random.randint(3, 70))   # time.sleep(2)
         for index, job_item in enumerate(ildao_items):
             if index >= first_no_simple and simple_text_items[index].find('간편지원') == -1 and site_text_items[index].find('강원') >= 0 and pay_text_items[index].find('협의') == -1 and (len(pattern_16_19.findall(pay_text_items[index])) > 0 or len(pattern_20_29.findall(pay_text_items[index])) > 0):
                 try:
                     job_item.location_once_scrolled_into_view
-                    time.sleep(random.randint(1, 12));job_item.click();time.sleep(.5)  # time.sleep(1);job_item.click();time.sleep(.5)
+                    time.sleep(random.randint(1, 15));job_item.click();time.sleep(.5)  # time.sleep(1);job_item.click();time.sleep(.5)
                     title, site, type, pay, etc1, etc2, etc3, numpeople, phone, detail, imageURL = self.get_job_detail()
                     job_item = IldaoTestWithSeleniumItem()
                     job_item['title'] = title;job_item['site'] = site;job_item['type'] = type;job_item['pay'] = pay
@@ -867,12 +867,12 @@ class IldaoSeoulSpider(scrapy.Spider):
 
         # 강원 16만 ~ 29만원 이외 & 협의
         print(f"중단가기  : {ildao_items[first_no_simple].location_once_scrolled_into_view}")
-        time.sleep(random.randint(3, 7))   # time.sleep(3)
+        time.sleep(random.randint(3, 16))   # time.sleep(3)
         for index, job_item in enumerate(ildao_items):
             if index >= first_no_simple and simple_text_items[index].find('간편지원') == -1 and site_text_items[index].find('강원') >= 0 and (pay_text_items[index].find('협의') >= 0 or (len(pattern_16_19.findall(pay_text_items[index])) == 0 and len(pattern_20_29.findall(pay_text_items[index])) == 0)):
                 try:
                     job_item.location_once_scrolled_into_view
-                    time.sleep(random.randint(1, 7));job_item.click();time.sleep(.5)   # time.sleep(1);job_item.click();time.sleep(.5)
+                    time.sleep(random.randint(1, 8));job_item.click();time.sleep(.5)   # time.sleep(1);job_item.click();time.sleep(.5)
                     title, site, type, pay, etc1, etc2, etc3, numpeople, phone, detail, imageURL = self.get_job_detail()
                     job_item = IldaoTestWithSeleniumItem()
                     job_item['title'] = title;job_item['site'] = site;job_item['type'] = type;job_item['pay'] = pay
@@ -925,7 +925,7 @@ class IldaoSeoulSpider(scrapy.Spider):
                 else:
                     pass
 
-        time.sleep(random.randint(3, 30))  # time.sleep(2)
+        time.sleep(random.randint(7, 200))  # time.sleep(random.randint(3, 30))
         print(f"\n\n\n총 아이템 수 : [{num_of_item}]\n")
         print(f"\nfirst_no_simple : [{first_no_simple}]\n") # 간편지원 아닌 index 출력
         print(f"\n # # # # # # # # # # # # # # # # # # # # # #   정상종료   # # # # # # # # # # # # # # # # # # # # # #\n\n")

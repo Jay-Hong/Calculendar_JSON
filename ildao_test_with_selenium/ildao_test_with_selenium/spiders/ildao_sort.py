@@ -205,7 +205,7 @@ class IldaoSeoulSpider(scrapy.Spider):
 
     def parse(self, response):
         self.driver.get(response.url)
-        time.sleep(random.randint(3, 7)) # time.sleep(2)
+        time.sleep(random.randint(7, 15)) # time.sleep(2)
 
         # ildao_items 가져오기
         ildao_items = self.driver.find_elements(By.CSS_SELECTOR, "div.scrollsection > div.box.pointer")
@@ -214,7 +214,7 @@ class IldaoSeoulSpider(scrapy.Spider):
             try:
                 print(f"목록가져오기{i} : {ildao_items[-1].location_once_scrolled_into_view}")
             except Exception as e:
-                print('\n\n - - - - - - - - 목록가져오기 예외처리 됨 !! - - - - - - - - \n\n')
+                print(f"\n\n - - - - - - - - 목록가져오기 예외처리 됨 !! - - - - - - - - \n\n{e}\n\n")
                 time.sleep(random.randint(3, 7))   # time.sleep(2.2)
             else:
                 time.sleep(random.randint(3, 7))    # time.sleep(2.2)
